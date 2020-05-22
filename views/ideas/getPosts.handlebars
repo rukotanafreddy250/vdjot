@@ -1,0 +1,44 @@
+{{!-- <div class="alert alert-primary">
+    Post added
+</div> --}}
+
+{{!-- <form action=""> --}}
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Details</th>
+        </thead>
+        <tbody>
+            {{#each results}}
+            <tr>
+                <td data-id='{{this.id}}'>{{this.id}}</td>
+                
+                <td data-title="{{this.title}}">{{this.title}}</td>
+               
+                <td data-body="{{this.body}}">{{this.body}}</td>
+
+                <td><a class="btn btn-primary" href="/ideas/edit/{{this.id}}">Edit</a></td>
+                <form action="/ideas/{{this.id}}?_method=DELETE" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <td><input type="submit" class="btn btn-danger" value="Delete"></td>
+                </form>
+                {{!-- <href="/ideas/delete/{{this.id}}"> --}}
+            </tr>
+            {{else}}
+                <div class="alert alert-danger">No record</div>
+            {{/each}}
+            {{!-- {{#each sql_list}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{title}}</td>
+                <td>{{body}}</td>
+            </tr>
+            {{else}}
+                <div class="alert alert-danger">No record</div>
+            {{/each}} --}}
+        </tbody>
+    </table>
+{{!-- </form> --}}
+</div>
+{{!-- <script src="./main.js"></script> --}}
